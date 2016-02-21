@@ -1,0 +1,51 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+	<title>Productos</title>
+</head>
+<body>
+	<nav class = "gris red padding-largo quitar-float text-center letra-menu">
+		<ul class = "no-lista">
+			<li class = "col-md-3 inline-block pacifico"><a class = "red" href = "{% url 'commerce:index' %}">Blick</a></li>
+			<li class = "col-md-3 inline-block "><a class="red"href = "{% url 'commerce:negocios' %}">Menu</a></li>
+			<li class = "col-md-3 inline-block"><a class="red" href = "{% url 'commerce:logout' %}">Logout</a></li>
+		</ul>
+	</nav>
+	<section>
+		<div class = "text-center mediano">
+				<h1 class = "pacifico grande redMenos">Lista de Productos</h1>	
+				<section>
+					<article>
+						<h1>{{productos.0.empresa}}</h1>
+						<strong>Direccion:{{productos.0.empresa.direccion}}</strong><p></p>
+						<strong>Telefono:{{productos.0.empresa.telefono}}</strong><p></p>
+					</article>
+				</section>
+			{% for product in productos %}
+			<div class = "col-md-4 col-sm-3 inline-block">
+				<article>
+					<h2 class = "pacifico">{{product.product}}</h3>
+					<img src="{% static 'imgs/Musica.png' %}" class="col-md-3 col-xs-4 quitar-float img-peque"/>
+					<p>
+						<strong>Precio {{product.precio}}</strong>
+						<br>
+						{{product.product.descripcion}}
+					</p>
+					<p>
+						<a href="" class="letra-chica">Editar</a>
+						<a href="" class="letra-chica">Eliminar</a>
+					</p>
+				</article>
+			</div>
+			{% endfor %}
+		</div>
+	</section>
+</body>
+</html>
