@@ -1,0 +1,110 @@
+body{
+	font-family: 'Lato', sans-serif;
+}
+#imagen-inicio{
+	width: 400px;
+	height: 500px;
+}
+#imagen-registro{
+	width: 95px;
+	height: 120px;
+}
+img{
+	max-width: 100%;
+}
+.imgSlider{
+	margin-top: 10px;
+	width: 900px;
+	height: 200px;
+}
+.letra-menu{
+	font-size: 2em;
+}
+.quitar-float{
+	float: none;
+}
+.espacio-arriba{
+	margin-top: 100px;
+}
+.pacifico{
+	font-family: 'pacifico', cursive;
+}
+.grande{
+	font-size: 6em;
+}
+.mediana{
+	font-size: 3em;
+}
+.chica{
+	font-size: 1.5em;
+}
+.red{
+	color: #621b16;
+}
+.redMenos{
+	color: #e83a0c;
+}
+.fondo-red{
+	background-color: #e83a0c;
+}
+.espacio-derecha{
+	margin-right: 1em;
+}
+a,.menu-color{
+	color: #2A6C7C;
+}
+.inline-block{
+	float: none;
+	display: inline-block;
+	margin-right: -4px;
+}
+.no-lista{
+	margin: 0px;
+	padding: 0px;
+}
+.no-lista li{
+	list-style-type: none;
+}
+.gris{
+	background-color: #eee;
+}
+.padding-largo{
+	padding: 5px 10px;
+}
+.vete-arriba{
+	vertical-align: top;
+}
+.mediano{
+	font-size: 1.5em;
+}
+.sombra{
+	box-shadow: 2px 2px 5px #000000;
+}
+.letra-chica{
+	font-size: .5em;
+}
+.circuloPaso {
+  background: #ef4136;
+  border-radius: 0.8em;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 15px;
+  text-align: center;
+  width: 1.6em; 
+  box-shadow: 1px 1px 1px 0px rgba(50, 50, 50, 0.75);
+}
+.Steps{
+	margin: 10px 100px 10px 100px;
+	box-shadow: 3px 3px 5px 2px rgba(50, 50, 50, 0.75);
+}
+.letraPC{
+	font-size: 1.5em;
+}
+.retraso-1{
+	animation-delay: 1s;
+}
+.retraso-2{
+	animation-delay: 1.5s;
+}

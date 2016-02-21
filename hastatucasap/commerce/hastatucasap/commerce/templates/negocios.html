@@ -1,0 +1,59 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+	<title>Negocios</title>
+	<script type="text/javascript">
+		function seguro()
+		{
+			var sure = confirm("¿Seguro que desea borrar la sucursal?")
+			if(!sure)
+			{
+				return false;
+			}
+			else
+				return true;
+		}
+	</script>
+</head>
+<body>
+	<nav class = "gris red padding-largo quitar-float text-center letra-menu">
+		<ul class = "no-lista">
+			<li class = "col-md-3 inline-block pacifico"><a class = "red" href = "{% url 'commerce:index' %}">Blick</a></li>
+			<li class = "col-md-3 inline-block "><a class="red"href = "{% url 'commerce:negocios' %}">Menu</a></li>
+			<li class = "col-md-3 inline-block"><a class="red" href = "{% url 'commerce:logout' %}">Logout</a></li>
+		</ul>
+	</nav>
+	<section>
+		<div class = "text-center mediano">
+			<h1 class = "pacifico grande redMenos">Lista de Negocios</h1>
+			{% for negocio in negocios %}
+			<br/>		
+			<div class = "col-md-2 inline-block vete-arriba">
+				<article>
+				<div class = "inline-block">
+						<p>
+							<a href="{% url 'commerce:productos' negocio.pk %}"><strong>{{ negocio.nombre }}</strong></a>
+							<br>
+							{{ negocio.direccion }}
+						</p>
+				</div>				
+				</article>
+			</div>
+			<div class = "col-md-2 col-sm-4 col-xs-6 inline-block vete-arriba">
+				<article>				
+				<div class = "inline-block">
+						<a href="#" onclick="seguro()"><img src="{% static 'imgs/trash.png' %}" class="col-md-4 col-xs-4 quitar-float img-peque"/></a>
+				</div>					
+				</article>
+			</div>
+			{% endfor %}
+	</section>
+</body>
+</html>

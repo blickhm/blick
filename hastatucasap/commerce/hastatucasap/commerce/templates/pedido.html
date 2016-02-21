@@ -1,0 +1,115 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<title>Pedido</title>
+</head>
+<body>
+	<nav class = "gris red padding-largo quitar-float text-center letra-menu">
+		<ul class = "no-lista">
+			<li class = "col-md-3 inline-block pacifico"><a class = "red" href = "{% url 'commerce:index'%}">Blick</a></li>
+			<li class = "col-md-3 inline-block "><a class="red"href = "" data-toggle="modal" data-target="#miModal">Objetivo</a></li>
+			<li class = "col-md-3 inline-block"><a class="red" href = "" data-toggle="modal" data-target="#miModal2">Reseña</a></li>
+		</ul>
+	</nav>
+
+	<div class="modal fade" id="miModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Objetivo</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Facilitar la adquisicion de un producto por servicio a domicilio, asi como extender las PyMEs</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Muy bien!</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div class="modal fade" id="miModal2" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Reseña</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p><strong>Estudiantes del Instituto Tecnologico de la Laguna diseñaron esta aplicación con fines de concursar en el hackathon 2016, sin embargo es una innovación para el mayor alcance de PyMEs y las personas con estas.</strong></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Muy bien!</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!--A slider-->
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	  <!-- Wrapper for slides -->
+	  <div class="carousel-inner" align="center" role="listbox">
+	    <div class="item active">
+	      <img src="{% static 'imgs/Publicidad.jpg' %}" alt="1" class="imgSlider">
+	    </div>
+
+	    <div class="item">
+	      <img src="{% static 'imgs/Publicidad.jpg' %}" alt="2" class="imgSlider">
+	    </div>
+
+	    <div class="item">
+	      <img src="{% static 'imgs/Publicidad.jpg' %}" alt="3" class="imgSlider">
+	    </div>
+
+	    <div class="item">
+	      <img src="{% static 'imgs/Publicidad.jpg' %}" alt="4" class="imgSlider">
+	    </div>
+	  </div>
+	  <!--Pasos-->
+	  <section class="Steps">
+		  <div align="center">
+		  	<h1>Bienvenido.</h1> 
+		  		<h3><span class = "circuloPaso">1</span> Elige una de las categorías</h3>
+		  		<form action="">
+		  		<div class="letraPC">
+		  			<select>
+		  			{% for categoria in categorias %}
+		  				<option>{{categoria}}</option>
+		  			{% endfor %}
+		  			</select>
+				
+		  		</button>		  	
+		  		<h3><span class = "circuloPaso">2</span>Distancia:</h3>
+		  		<select>
+		  			<option>1km</option>
+		  			<option>5km</option>
+		  			<option>10km</option>
+		  		</select><br>
+			  	<h3><span class = "circuloPaso">3</span> Permítenos conocer ¿Cuál es tu ubicación?</h3>
+			  	<h4>Ingresa tu direccion: <input name="address" onkeydown=""> <button type="submit">Buscar</button></h4>
+			  	<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d14386.852743594813!2d-100.28805829999999!3d25.647643000000002!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1456051865097" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+			  	<h3><span class = "circuloPaso">4</span> Disfruta pidiendo a domicilio</h3>
+			  		<h4>Selecciona la tienda:</h4>
+			  		<select>
+			  		{% for empresa in empresas %}
+			  			<option>{{empresa}}</option>
+			  		{% endfor %}
+			  		</select>
+			  		<br><br>
+			  		<button type="submit" class="btn btn-danger letraPC" style="background-color: #">Iniciar Compra</button>
+			  		<br><br>
+			  	</form>
+			  	</div>
+		  </div>
+	  </section>	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>

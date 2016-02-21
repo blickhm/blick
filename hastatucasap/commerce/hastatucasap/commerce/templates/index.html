@@ -1,0 +1,71 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale-1.0">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<title>Blick</title>
+</head>
+<body>
+	<div class="col-md-5 center-block quitar-float text-center espacio-arriba">
+		<img src="{% static 'imgs/logo.png'%}" id="imagen-inicio" class = "animated bounceIn"/>
+		<h1 class ="pacifico grande red animated bounceIn retraso-1">Buy it Online</h2>
+		<div class = "animated fadeInDown  retraso-2">
+			<h2 class="mediana">Servicio a Domicilio</h2>
+			<nav class= "mediano">
+				<a href="" class = "espacio-derecha redMenos chica" data-toggle="modal" data-target="#miModal2">Soy una empresa</a>
+				<a href="{% url 'commerce:pedido'%}" class = "chica espacio-derecha redMenos">Quiero Pedir</a>
+				<a href="" class = "chica espacio-derecha redMenos" data-toggle="modal" data-target="#miModal" >Acerca de</a>
+			</nav>	
+		</div>	
+	</div>
+
+	<div class="modal fade" id="miModal" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Acerca de&hellip;</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>it was developed to participate in the hackathon</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div class="modal fade" id="miModal2" tabindex="-1" role="dialog">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Inicia Sesión </h4>
+	      </div>
+	      <form action="{% url 'commerce:login' %}" method="post">
+	      <div class="modal-body" align="center" id="inicio" >
+	      {% csrf_token %}
+	        <p>Usuario:<br> <input name="email"></p>
+	        <p>Contraseña:<br> <input type="password" name="pass"></p>
+	        <p><a href="{% url 'commerce:registro' %}">Registrate</a></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="submit" class="btn btn-default">Iniciar</button>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+	      </div>
+	      </form>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</body>
+</html>
